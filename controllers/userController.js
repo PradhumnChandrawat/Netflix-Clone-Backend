@@ -1,6 +1,9 @@
 import { User } from "../models/userModel.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const Login = async (req, res) => {
   try {
@@ -29,7 +32,7 @@ export const Login = async (req, res) => {
     const tokenData = {
       id: user._id,
     };
-    const token = await jwt.sign(tokenData, "secretjhhasgjhfkeyjsfck", {
+    const token = await jwt.sign(tokenData, process.env.JWT_SECRET_KEY, {
       expiresIn: "1h",
     });
 

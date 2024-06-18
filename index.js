@@ -15,7 +15,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  // origin: "http://localhost:3000",
+  origin: "https://earnest-haupia-e9c009.netlify.app/",
   methods: ["GET", "POST"],
   credentials: true,
 };
